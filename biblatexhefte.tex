@@ -235,14 +235,13 @@ Ctrl-a):
       author =       {},
       title =        {},
       journaltitle = {},
-      year =         {},
-      OPTkey =       {},
+      ALTyear =      {},
+      ALTdate =      {},
       OPTvolume =    {},
       OPTnumber =    {},
       OPTpages =     {},
       OPTmonth =     {},
-      OPTnote =      {},
-      OPTannote =    {}
+      ...
     }
 \end{verbatim}}
 
@@ -294,8 +293,8 @@ stilen bestemme hvorvidt det skal skrives med initialer eller fullt navn.
 Kjenner du ikke fullt navn, så sørg likevel for at du gir samme forfatter ens navn.
 
 \subsection*{Store bokstaver }
-Opplysningene i noen felt kan bli redigert dersom dokumentstilen krever
-det. F.eks. kan store bokstaver bli omgjort til små. For å omgå dette,
+Opplysningene i noen felt kan bli redigert av \bt\ dersom dokumentstilen krever
+det. F.eks. kan store bokstaver bli omgjort til små. Det skjer ikke i \blt. For å omgå dette,
 kan man sette teksten man ønsker å beholde i krøllparenteser. Særlig
 aktuelt er dette i forbindelse med forkortelser (``ACM'', ``IEEE'') og
 egennavn som forekommer i f.eks. tittel. 
@@ -310,8 +309,8 @@ bib-filen. Eksempler:
 
 {\footnotesize
 \begin{verbatim}
-  @string{ben   = "Ben Shneiderman"}
-  @string{ojd   = "Ole-Johan Dahl"}
+  @string{ben   = "Shneiderman, Ben"}
+  @string{ojd   = "Dahl, Ole-Johan"}
   @string{tochi = "ACM Transactions on Computer-Human Interaction"}
   @string{aw    = "Addison-Wesley"}
 \end{verbatim}
@@ -451,7 +450,7 @@ Datoformatet avhenger av dokumentspråk og format. Sier man ikke noe, gir
 \textbf{norsk} 29.07.2013, og \textbf{english}  07/29/2013. Man kan
 også stille inn datoformatet som pakkevalg og man kan da skille mellom
 vanlig \textbf{date} og \textbf{urldate} og andre datoer, se nærmere
-om valgmuligheter i \cite[][48--49]{biblatex}.
+om valgmuligheter i \cite[][50--53]{biblatex}.
 
 \section{Øvelse 1: Samle referanser i en bib-fil} Vi skal nå fylle opp
 bib-filen med referanser. Dels ved å hente ferdig formaterte
@@ -579,8 +578,7 @@ du etter kurset finne og hente referansene på egen hånd\footnote{Du finner
 {\footnotesize\begin{verbatim}
         http://folk.uio.no/knuthe/biblatex/nor/
 \end{verbatim}}
-
-Høyreklikk på \textbf{referanser.bib} og last ned.
+\noindent{}Høyreklikk på \textbf{referanser.bib} og last ned.
 
 Kopiér inn referansen til din egen oppgave fra den
 andre bib-filen.
@@ -596,8 +594,7 @@ I denne øvelsen skal du kopiere teksten fra
 {\footnotesize\begin{verbatim}
         http://folk.uio.no/knuthe/biblatex/nor/
 \end{verbatim}}
-
-Høyreklikk på \textbf{userinterface.tex} og last ned.
+\noindent{}Høyreklikk på \textbf{userinterface.tex} og last ned.
 
 Åpne filen i Emacs. Du skal så arbeide med å sette inn
 korrekte siteringer der det er markert med forfatter og årstall mellom
@@ -606,7 +603,7 @@ doble stjerner (**).
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=10cm]{./documentstructure.jpg}
+\includegraphics[width=\textwidth]{./documentstructure.jpg}
 \caption{Grovskisse av \LaTeX-dokument som bruker \blt (alt i rødt har med \blt å gjøre.}\label{document}
 \end{center}
 \end{figure}
@@ -621,8 +618,7 @@ dette angis som valg til biblatex-pakka:
     \usepackage[utf8]{inputenc}
     \usepackage[bibencoding=latin1]{biblatex}
 \end{verbatim}}
-
-UTF8 er standard på IFI nå.
+\noindent{}UTF8 er standard på IFI nå.
 
 \subsection{Én eller flere bib-filer}
 Etter å ha lastet inn \blt{}-pakken, må systemet få vite hvilke
@@ -631,8 +627,7 @@ bib-filer som skal brukes. Dette gjøres med kommandoen:
 {\footnotesize\begin{verbatim}
     \addbibresource{bib-filnavn}
 \end{verbatim}}
-
-Bib-filer må oppgis med extension (.bib) og om du bruker flere
+\noindent{}Bib-filer må oppgis med extension (.bib) og om du bruker flere
 bib-filer, må du gi flere kommandoer. Da kan det også være aktuelt å samle
 alle makroer i en egen fil. Den må da lastes inn først:
 
@@ -649,8 +644,7 @@ med identifikatoren som parameter, slik:
 {\footnotesize\begin{verbatim}
    \cite{identifikator}
 \end{verbatim}}
-
-\noindent Identifikatoren må være skrevet nøyaktig slik den er skrevet
+\noindent{}Identifikatoren må være skrevet nøyaktig slik den er skrevet
 i bib-filen (følsomhet for store og små bokstaver).
 
 Ønsker du å sitere flere samtidig, skilles de av komma innenfor
@@ -659,23 +653,20 @@ krøllparentesene:
 {\footnotesize\begin{verbatim}
    \cite{identifikator1,identifikator2}
 \end{verbatim}}
-
-\noindent Du kan oppgi tekst som skal inngå foran eller bak selve
+\noindent{}Du kan oppgi tekst som skal inngå foran eller bak selve
 siteringen.
 
 {\footnotesize\begin{verbatim}
    \cite[prefiks][suffiks]{identifikator}
 \end{verbatim}}
-
-\noindent Om man ønsker å vise til en bestemt side i det dokumentet
+\noindent{}Om man ønsker å vise til en bestemt side i det dokumentet
 man siterer, så kan det ordnes med klamme-parametre til
 cite-kommandoen:
 
 {\footnotesize\begin{verbatim}
    \cite[Se også][47]{identifikator}
 \end{verbatim}}
-
-\noindent{}som vil komme ut som: \verb=[Se også 19, s. 47]=. Se \cite[][13]{langmyhr13} for flere \verb=\cite=-kommandoer.
+\noindent{}som vil komme ut som: \verb=[Se også 19, s. 47]=. Se \cite[][14]{langmyhr13} for flere \verb=\cite=-kommandoer.
 
 Om du ikke direkte siterer en referanse du har i bib-filen,
 men ønsker å ha den med i referanselista, kan du skrive:
@@ -683,8 +674,7 @@ men ønsker å ha den med i referanselista, kan du skrive:
 {\footnotesize\begin{verbatim}
    \nocite{identifikator}
 \end{verbatim}}
-
-\noindent Du kan her bytte ut \textit{identifikator} med *. Da kommer alle
+\noindent{}Du kan her bytte ut \textit{identifikator} med *. Da kommer alle
 referansene i bib-filene med i referanselista.
 
 \subsection{RefTeX -- finne fram og velge referanse}
@@ -705,7 +695,6 @@ inn i din .emacs-fil:
 (setq reftex-bibliography-commands 
    '("addbibresource" "bibliography" "nobibliography")) 
 \end{verbatim}}
-
 Haken er at RefTeX bare fanger opp den første bib-filen angitt med
 \textbf{addbibresource}. Bruker du flere bib-filer, må du oppgi dem
 samlet i en \textbf{bibliography}-kommando\footnote{Kommandoen må
@@ -767,7 +756,7 @@ men man kan også spesifisere dem hver for seg.
 \end{verbatim}}
 
 Her er noen av standardstilene\footnote{Det fins mange flere stiler,
-  se \cite[][63--68]{biblatex}.}:
+  se \cite[][65-70]{biblatex}.}:
 
 \begin{description}
 \item[numeric] -- Siteringen oppgis som et nummer i skarpe
@@ -802,17 +791,14 @@ kommando:
 {\footnotesize\begin{verbatim}
    \printbibliography
 \end{verbatim}}
-
-\noindent Så gir du følgende kommandoer i terminalvinduet (eller i verktøyet):
-
+\noindent{}Så gir du følgende kommandoer i terminalvinduet (eller i verktøyet):
 {\footnotesize\begin{verbatim}
    > pdflatex userinterface.tex
    > biber userinterface
    > pdflatex userinterface.tex
    > pdflatex userinterface.tex
 \end{verbatim}}
-
-Kort fortalt skjer dette: Den første pdflatex-kommandoen genererer en
+\noindent{}Kort fortalt skjer dette: Den første pdflatex-kommandoen genererer en
 del mellomlagringsfiler som biber-programmet bruker for å generere
 siterings- og referanselisteinformasjon som blir inkludert i
 produksjon ved neste pdflatex-kjøring.
@@ -824,7 +810,7 @@ I Linux kommandomodus kan du i IFI-miljø gi kommandoen
 {\footnotesize\begin{verbatim}
    > ltx  userinterface.tex 
 \end{verbatim}}
-som tar seg av alle de fire skrittene ovenfor.
+\noindent{}som tar seg av alle de fire skrittene ovenfor.
 \subsection{Variere stil}
 Når man skal endre stil, kan det være lurt å slette en del
 mellomlagringsfiler før ny produksjon 
@@ -832,9 +818,7 @@ mellomlagringsfiler før ny produksjon
 {\footnotesize\begin{verbatim}
    > rm  *.aux *.bbl *.bcf *.blg *.out 
 \end{verbatim}}
-
-
-Prøv nå å endre stilen til \textit{alphabetic} og kjøre ny produksjon. Sjekk
+\noindent{}Prøv nå å endre stilen til \textit{alphabetic} og kjøre ny produksjon. Sjekk
 resultatet.
 
 Så kan du prøve stilen \textit{authortitle}. Legg merke til at du ikke lenger
@@ -866,20 +850,17 @@ disse variablene.
 \end{tabular}
 
 \end{center}
-
 \noindent{}Dersom du ønsker å endre innholdet i variablene, kan du gi kommandoen
 
 {\footnotesize\begin{verbatim}
    \renewcommand{\refname}{Litteraturliste}
 \end{verbatim}}
-
 \noindent{}Overskriften kan også være en parameter til
 \kdo{printbibliography}:
 
 {\footnotesize\begin{verbatim}
    \printbibliography[title={Litteraturliste}]
 \end{verbatim}}
-
 \noindent{}En tredje variant er nevnt på side~\pageref{heading}.
 
 \subsection{Referanselista i innholdsfortegnelsen}\label{innhold}
@@ -895,7 +876,6 @@ innholdet av \verb=\refname= før disse to, så sikrer du konsistens:
    \printbibliography
    \addcontentsline{toc}{section}{\refname}
 \end{verbatim}}
-
 \noindent{}Her forteller \textit{toc} at det hele skal inn i table-of-contents,
 \textit{section} hvilket dokumentnivå innførselen skal ha og
 \verb=\refname= hvilken tekst som skal inn i innholdsfortegnelsen
@@ -913,7 +893,6 @@ Ved å føye til
 {\footnotesize\begin{verbatim}
    \usepackage{hyperref}
 \end{verbatim}}
-
 \noindent\textit{etter} \blt-pakken
 i innledningen og gi \kdo{backref} som opsjon til \blt{}, så får man ønsket effekt (pluss noen andre, som
 interne og eksterne lenker i dokumentet). Pakken \textit{hyperref} er
@@ -941,8 +920,7 @@ seksjons referanseliste:
       \printbibliography
       \end{refsection}
 \end{verbatim}}
-
-Alle siteringer gjort innenfor referanseseksjonen vil inngå i
+\noindent{}Alle siteringer gjort innenfor referanseseksjonen vil inngå i
 referanselista. Slik kan man gjøre for alle seksjoner/kapitler.
 
 Eventuelle siteringer gjort utafor en seksjon vil
@@ -963,8 +941,7 @@ Du kan avslutte dokumentet med følgende kommandosekvens:
    \printbibliography[section=3, heading=overskrift]
    ...
 \end{verbatim}}
-
-Den første kommandoen vil skrive ut den generelt definerte
+\noindent{}Den første kommandoen vil skrive ut den generelt definerte
 overskriften for referanselister, f.eks \textbf{Referanser}.
 
 De neste kommandoene vil skrive ut referansene for relevant seksjon
@@ -976,7 +953,6 @@ kan være definert slik:\label{heading}
      \section*{Referanser for kapittel %
      \ref{refsection:\therefsection}}}
 \end{verbatim}}
-
 \noindent{}Prøv dette med userinterface-dokumentet!
 
 \subsubsection*{Referanselister etter dokumenttype eller tema}
@@ -993,8 +969,7 @@ for seg og til slutt øvrige dokumenter. Skriv inn kommandoen
    \printbibliography[nottype=book, nottype=article,%
     nottype=manual, title={Øvrige dokumenter}]
 \end{verbatim}}
-
-For å sikre en fortløpende nummerering av referansene i listene brukes
+\noindent{}For å sikre en fortløpende nummerering av referansene i listene brukes
 valget \texttt{defernumbers=true} til biblatex-pakka.
 
 Du kan også bruke feltet \verb=keywords= i referansene for å fordele dem på ulike temaer i bibliografien:
@@ -1009,7 +984,7 @@ Du kan også bruke feltet \verb=keywords= i referansene for å fordele dem på u
 Det er en rekke tekster som kan varieres. De fleste vil være oversatt
 gjennom norske forhåndsoppsatte verdier. Her er eksempel på
 redefinering av slike tekster\footnote{Liste over flere språkvariabler
-  fins i \blt-manualen\cite[][se under avsnitt 4.9, s. 208]{biblatex}}:
+  fins i \blt-manualen\cite[][se under avsnitt 4.9, s. 215]{biblatex}}:
 
 {\footnotesize\begin{verbatim}
 \DefineBibliographyStrings{norsk}{%
@@ -1023,15 +998,14 @@ redefinering av slike tekster\footnote{Liste over flere språkvariabler
     and={og},
 }
 \end{verbatim}}
-
-Som det går fram av uttrykket, må slike tekster knyttes til valget av
+\noindent{}Som det går fram av uttrykket, må slike tekster knyttes til valget av
 språk (norsk, english, \ldots) slik at \blt\ vet når de skal benyttes.
 
 
 \vfill
 {\footnotesize
 \begin{center}
-August 2016\\
+Februar 2017\\
 /undervisning/biblatex-kurs/biblatexhefte.tex
 \end{center}
 }
